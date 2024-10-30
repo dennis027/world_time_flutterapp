@@ -9,26 +9,31 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
 
-  int counter =0;
+  void getData () async {
+  //   simulate a network request for a user
+    String username =await Future.delayed(Duration(seconds: 3), (){
+    return ('Dennis');
+    });
+
+    String bio =  await Future.delayed(Duration(seconds: 2), (){
+      return ('A software Developer');
+    });
+
+
+    print('The user is $username and his/her bio is $bio');
+  }
   
   @override
   void initState() {
     super.initState();
-    print("whats happening over here");
+    getData();
   }
 
   @override
   Widget build(BuildContext context) {
-    print("whats happening over here too");
-    return Scaffold(
-      body: TextButton(
-          onPressed: () {
-            setState(() {
-              counter +=1;
-            });
-          },
-          child: Text('Counter is $counter')),
 
+    return Scaffold(
+      body: Text('Choose Location'),
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         backgroundColor: Colors.blue[900],
