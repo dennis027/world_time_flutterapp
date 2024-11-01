@@ -26,16 +26,43 @@ class _HomeState extends State<Home> {
     print('Imported data: $deta');
 
     return Scaffold(
-      body: SafeArea(child: Column(
-        children: [
-          OutlinedButton.icon(
-              onPressed: (){
-                Navigator.pushNamed(context, '/location');
-              },
-              label: Text("Edit Location") ,
-              icon: Icon(Icons.edit_location),)
-        ],
-      )),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
+        child: SafeArea(child: Column(
+          children: [
+            OutlinedButton.icon(
+                onPressed: (){
+                  Navigator.pushNamed(context, '/location');
+                },
+                label: Text("Edit Location") ,
+                icon: Icon(Icons.edit_location),),
+
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  deta['location'],
+                  style: TextStyle(
+                    fontSize: 28,
+                    letterSpacing: 2.5
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 20,),
+            
+            Text(deta['time'],
+            style: TextStyle(
+              fontSize: 66
+            ),)
+            
+            
+            
+
+          ],
+        )),
+      ),
     );
   }
 }
