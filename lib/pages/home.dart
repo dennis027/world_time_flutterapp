@@ -8,8 +8,23 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  Map<String, dynamic> deta = {};
+
+
   @override
   Widget build(BuildContext context) {
+
+    final routeData = ModalRoute.of(context)?.settings.arguments;
+
+    if (routeData != null && routeData is Map<String, dynamic>) {
+      deta = routeData;
+    } else {
+      deta = {}; // Assign a default if null or not a map
+    }
+
+    print('Imported data: $deta');
+
     return Scaffold(
       body: SafeArea(child: Column(
         children: [
