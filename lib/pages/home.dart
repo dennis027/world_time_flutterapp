@@ -15,6 +15,8 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
 
+
+
     final routeData = ModalRoute.of(context)?.settings.arguments;
 
     if (routeData != null && routeData is Map<String, dynamic>) {
@@ -25,43 +27,64 @@ class _HomeState extends State<Home> {
 
     print('Imported data: $deta');
 
+    String bgImage = deta['isDayTime'] ? 'day.png' : 'night.png';
+    Color bgColor = deta['isDayTime'] ? Colors.blue :Colors.indigo ;
+
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
-        child: SafeArea(child: Column(
-          children: [
-            OutlinedButton.icon(
-                onPressed: (){
-                  Navigator.pushNamed(context, '/location');
-                },
-                label: Text("Edit Location") ,
-                icon: Icon(Icons.edit_location),),
+      backgroundColor: bgColor,
+      body: Container(
+          decoration:BoxDecoration(
+            image: DecorationImage(image: AssetImage('assets/$bgImage'),
+            fit: BoxFit.cover
+            )
 
-            SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  deta['location'],
-                  style: TextStyle(
-                    fontSize: 28,
-                    letterSpacing: 2.5
-                  ),
-                )
-              ],
-            ),
-            SizedBox(height: 20,),
-            
-            Text(deta['time'],
-            style: TextStyle(
-              fontSize: 66
-            ),)
-            
-            
-            
-
-          ],
-        )),
+          ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
+          child: SafeArea(child: Column(
+            children: [
+              TextButton.icon(
+                  onPressed: (){
+                    Navigator.pushNamed(context, '/location');
+                  },
+                  label: Text(
+                      "Edit Location",
+                      style: TextStyle(
+                        color: Colors.grey[200]
+                      ),
+                  ) ,
+                  icon: Icon(
+                      Icons.edit_location,
+                      color: Colors.grey[300],),),
+        
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    deta['location'],
+                    style: TextStyle(
+                      fontSize: 28,
+                      letterSpacing: 2.5,
+                      color:Colors.white
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 20,),
+              
+              Text(deta['time'],
+              style: TextStyle(
+                fontSize: 66,
+                  color:Colors.white
+              ),)
+              
+              
+              
+        
+            ],
+          )),
+        ),
       ),
     );
   }
