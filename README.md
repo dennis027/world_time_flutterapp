@@ -21,9 +21,9 @@ An App that show time of different regions using the [World Time API](https://wo
 ## Screenshots
 The home page shows Nairobi Kenya time
 
-![ Homepage ](https://github.com/your-username/your-repository/raw/main/assets/image1.png)
+![ Homepage ](https://github.com/dennis027/world_time_flutterapp/blob/main/assets/homescreen.png)
 
 Clicking the edit location button you can be able to change location from the list
 
-![Change Location](https://github.com/your-username/your-repository/raw/main/assets/image1.png)
+![Change Location](https://github.com/dennis027/world_time_flutterapp/blob/main/assets/chooseLocation.png)
 
