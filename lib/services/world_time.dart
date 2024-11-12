@@ -7,14 +7,14 @@ class WorldTime {
   String? time; // the time in that location
   String? flag; // URL to an asset flag icon
   String? url; // location URL for the API
-  bool? isDayTime;
+  bool? isDayTime = false;
 
   WorldTime({this.location, this.flag, this.url, this.isDayTime});
 
   Future<void> getTime() async {
     try {
       print('Fetching time data...');
-      Response response = await get(Uri.parse('http://worldtimeapi.org/api/timezone$url')).timeout(Duration(seconds: 5));;
+      Response response = await get(Uri.parse('http://worldtimeapi.org/api/timezone/$url')).timeout(Duration(seconds: 5));;
 
       // Check if the response was successful
       if (response.statusCode == 200) {

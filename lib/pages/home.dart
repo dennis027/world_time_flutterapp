@@ -27,6 +27,7 @@ class _HomeState extends State<Home> {
 
     print('Imported data: $deta');
 
+    deta['isDayTime'] == null ? deta['isDayTime'] = false :  deta['isDayTime'] = deta['isDayTime'];
     String bgImage = deta['isDayTime'] ? 'day.png' : 'night.png';
     Color bgColor = deta['isDayTime'] ? Colors.blue :Colors.indigo ;
 
@@ -44,8 +45,16 @@ class _HomeState extends State<Home> {
           child: SafeArea(child: Column(
             children: [
               TextButton.icon(
-                  onPressed: (){
-                    Navigator.pushNamed(context, '/location');
+                  onPressed:  () async {
+                   dynamic results = await  Navigator.pushNamed(context, '/location');
+                   setState(() {
+                     deta = {
+                       'location' : results.location,
+                       'flag':results.flag,
+                       'time':results.time,
+                       'isDayTime':results.isDayTime
+                     };
+                   });
                   },
                   label: Text(
                       "Edit Location",

@@ -15,3 +15,15 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 # world_time_flutterapp
+
+An App that show time of different regions using the [World Time API](https://worldtimeapi.org/api/timezone). 
+
+## Screenshots
+The home page shows Nairobi Kenya time
+
+![ Homepage ](https://github.com/your-username/your-repository/raw/main/assets/image1.png)
+
+Clicking the edit location button you can be able to change location from the list
+
+![Change Location](https://github.com/your-username/your-repository/raw/main/assets/image1.png)
+
